@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOPAL WEAR</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #151515;
+            color: #e8e3dc;
+        }
+
+        nav {
+            background: #101010;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #292929;
+        }
+
+        nav h2 {
+            letter-spacing: 3px;
+            color: #d6c7b5;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #d6c7b5;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background: #1b1b1b;
+        }
+
+        .stars {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                radial-gradient(circle, white 1px, transparent 1.5px),
+                radial-gradient(circle, white 1px, transparent 1.5px),
+                radial-gradient(circle, #dcecff 1px, transparent 1.5px);
+            background-size: 90px 90px, 140px 140px, 200px 200px;
+            background-position: 10px 20px, 50px 80px, 100px 40px;
+            animation: langit 30s linear infinite;
+        }
+
+        @keyframes langit {
+            from {
+                background-position: 10px 20px, 50px 80px, 100px 40px;
+            }
+            to {
+                background-position: 100px 20px, 140px 80px, 190px 40px;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            color: #ded2c3;
+        }
+
+        .hero p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #756653;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #897660;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h2 {
+            font-size: 30px;
+            color: #d8ccbd;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #888;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        .product {
+            background: #202020;
+            border: 1px solid #2c2c2c;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            align-self: start;
+            height: auto;
+            min-height: 0;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            border-color: #625849;
+        }
+
+        .product > img {
+            display: block;
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product h3 {
+            margin-bottom: 8px;
+            color: #ddd3c8;
+        }
+
+        .product p {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #cdbda9;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .story-btn {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid #625849;
+            color: #cdbda9;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .story-btn:hover {
+            background: #625849;
+            color: white;
+        }
+
+        .buy {
+            display: block;
+            width: 90%;
+            margin: 12px auto 0;
+            padding: 13px 18px;
+            box-sizing: border-box;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #ffb13b, #ff3d68, #d629c9);
+            box-shadow: 0 5px 15px rgba(214,41,201,.3);
+        }
+
+        .owner {
+            background: #1b1b1b;
+        }
+
+        .owner-box {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            background: #202020;
+            padding: 30px;
+            border: 1px solid #2c2c2c;
+            border-radius: 8px;
+        }
+
+        .owner-photo {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .owner-info h2 {
+            margin-bottom: 10px;
+            color: #d8ccbd;
+        }
+
+        .owner-info p {
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+            line-height: 2;
+        }
+
+        .contact-box p {
+            color: #aaa;
+        }
+
+        .contact-box a {
+            color: #cdbda9;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #101010;
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+        }
+
+        .modal-content {
+            background: #202020;
+            width: 90%;
+            max-width: 500px;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #393939;
+        }
+
+        .modal-content h2 {
+            color: #d8ccbd;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .close {
+            float: right;
+            font-size: 25px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .owner-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>NOPAL WEAR</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#owner">Owner</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="stars"></div>
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>NOPAL WEAR</h1>
+            <p>Ikutin gaya lo jangan dengerin judge orang lain</p>
+            <a href="#produk" class="btn">Lihat Produk</a>
+        </div>
+    </div>
+</section>
+
+<section id="produk">
+    <div class="title">
+        <h2>OUR COLLECTION</h2>
+        <p>Pilihan pakaian Nopal Wear</p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="baju/produk1.jpeg.jpeg" alt="Anime" width="100%" height="350">
+            <div class="product-info">
+                <h3>Anime</h3><p>Tokyo Ghoul.</p><div class="price">Rp129.000</div>
+                <button class="story-btn" onclick="showStory('Tokyo Ghoul','Tokyo Ghoul menceritakan Ken Kaneki, seorang mahasiswa yang hidupnya berubah setelah mengalami sebuah kejadian yang membuatnya harus menjalani kehidupan sebagai manusia sekaligus ghoul. Di tengah konflik antara manusia dan ghoul, Kaneki berusaha memahami dirinya sendiri dan mencari tempat untuk hidup.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/produk2.jpeg.jpeg" alt="Anime" width="100%" height="350">
+            <div class="product-info">
+                <h3>Anime</h3><p>Death note.</p><div class="price">Rp149.000</div>
+                <button class="story-btn" onclick="showStory('Death Note','Light Yagami menemukan sebuah buku misterius bernama Death Note yang dapat membunuh seseorang hanya dengan menuliskan namanya. Ia kemudian menggunakannya untuk menciptakan dunia versinya sendiri, hingga seorang detektif jenius bernama L mulai memburunya.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju3.jpeg" alt="Inspirate" width="100%" height="350">
+            <div class="product-info">
+                <h3>Inspirate</h3><p>The ghost sketch.</p><div class="price">Rp139.000</div>
+                <button class="story-btn" onclick="showStory('The Ghost Sketch','Seorang anak memiliki ketertarikan aneh pada gambar hantu. Setiap malam, ia menggambar sosok-sosok misterius yang muncul dalam pikirannya. Namun suatu hari, ia menyadari bahwa gambar yang ia buat mulai memiliki kemiripan dengan kejadian-kejadian aneh di sekitarnya.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju4.jpeg" alt="Film" width="100%" height="350">
+            <div class="product-info">
+                <h3>Film</h3><p>The truman show.</p><div class="price">Rp139.000</div>
+                <button class="story-btn" onclick="showStory('The Truman Show','Truman Burbank menjalani kehidupan yang terlihat normal tanpa menyadari bahwa seluruh hidupnya ternyata direkam dan disiarkan sebagai sebuah acara televisi. Ketika mulai menemukan berbagai kejanggalan, Truman berusaha mencari tahu kebenaran tentang dunia di sekitarnya.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju 5.jpeg" alt="Inspirate" width="100%" height="350">
+            <div class="product-info">
+                <h3>Inspirate</h3><p>Obses creepy.</p><div class="price">Rp135.000</div>
+                <button class="story-btn" onclick="showStory('The Man Who Wanted to See an Angel','Seorang pria terobsesi untuk melihat malaikat yang selama ini hanya ia dengar dari cerita orang lain. Ia mulai mencari tanda-tanda keberadaan mereka, hingga suatu malam ia melihat sosok bercahaya yang membuatnya mempertanyakan antara kenyataan dan imajinasi.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju6.jpeg" alt="Vintage Grey" width="100%" height="350">
+            <div class="product-info">
+                <h3>Vintage Grey</h3><p>Gray.</p><div class="price">Rp145.000</div>
+                <button class="story-btn" onclick="showStory('Vintage Grey','Terinspirasi dari sang owner yang sedang gabut dan tidak melakukan aktivitas apapun.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju7.jpeg" alt="Musisi" width="100%" height="350">
+            <div class="product-info">
+                <h3>Musisi</h3><p>Rex orange country.</p><div class="price">Rp189.000</div>
+                <button class="story-btn" onclick="showStory('Rex Orange County','Rex Orange County adalah musisi asal Inggris yang dikenal dengan musik bernuansa indie pop, jazz, dan soul. Lagu-lagunya sering menceritakan tentang kehidupan, cinta, perasaan, dan perjalanan menjadi diri sendiri.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju8.jpeg" alt="Frank Ocean" width="100%" height="350">
+            <div class="product-info">
+                <h3>Frank ocean</h3><p>Musisi.</p><div class="price">Rp219.000</div>
+                <button class="story-btn" onclick="showStory('Frank Ocean','Frank Ocean adalah musisi asal Amerika yang dikenal dengan musik R&B dan soul yang emosional. Karya-karyanya banyak mengeksplorasi tema cinta, hubungan, kehidupan, dan perasaan pribadi dengan gaya yang unik.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju9.jpeg" alt="Film" width="100%" height="350">
+            <div class="product-info">
+                <h3>Film</h3><p>Lightning Mcqueen.</p><div class="price">Rp229.000</div>
+                <button class="story-btn" onclick="showStory('Lightning McQueen','Lightning McQueen adalah mobil balap muda yang percaya diri dan berambisi menjadi yang tercepat. Dalam perjalanannya, ia belajar bahwa kemenangan bukan satu-satunya hal penting, tetapi juga persahabatan, kerja keras, dan menghargai orang lain.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju10.jpeg" alt="Heart Own" width="100%" height="350">
+            <div class="product-info">
+                <h3>Heart own</h3><p>Inspirate</p><div class="price">Rp239.000</div>
+                <button class="story-btn" onclick="showStory('Heart','Owner yang sedang patah hati dan mulai meluapkannya dengan membuat karya.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju11.jpeg" alt="Interstellar" width="100%" height="350">
+            <div class="product-info">
+                <h3>Interstellar</h3><p>Film.</p><div class="price">Rp199.000</div>
+                <button class="story-btn" onclick="showStory('Interstellar','Interstellar menceritakan Cooper, seorang mantan pilot yang melakukan perjalanan luar angkasa untuk mencari planet baru yang dapat menjadi tempat tinggal manusia. Dalam perjalanan tersebut, ia menghadapi waktu, jarak, dan pengorbanan demi menyelamatkan umat manusia.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju12.jpeg" alt="Chess" width="100%" height="350">
+            <div class="product-info">
+                <h3>Chess</h3><p>Game.</p><div class="price">Rp139.000</div>
+                <button class="story-btn" onclick="showStory('Chess','Catur adalah permainan strategi yang mempertemukan dua pemain dalam sebuah papan dengan 64 kotak. Setiap langkah membutuhkan perhitungan dan taktik untuk mengalahkan lawan dengan melakukan skakmat terhadap raja.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju13.jpeg" alt="Fast and Furious" width="100%" height="350">
+            <div class="product-info">
+                <h3>Film</h3><p>Fast and Furious.</p><div class="price">Rp159.000</div>
+                <button class="story-btn" onclick="showStory('Fast & Furious','Fast & Furious bukan hanya tentang balapan dan kecepatan, tetapi juga tentang keluarga dan persahabatan. Kisahnya terus mengenang Paul Walker sebagai sosok penting yang meninggalkan kenangan dalam perjalanan keluarga Fast & Furious.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju14.jpeg" alt="Fight Club" width="100%" height="350">
+            <div class="product-info">
+                <h3>Film</h3><p>Fight club.</p><div class="price">Rp179.000</div>
+                <button class="story-btn" onclick="showStory('Fight Club','Fight Club mengikuti seorang pria yang merasa jenuh dengan kehidupan rutinnya hingga bertemu Tyler Durden. Pertemuan mereka membawa terbentuknya sebuah klub pertarungan rahasia yang perlahan mengubah kehidupan mereka dan cara mereka memandang dunia.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju15.jpeg" alt="Dark Navy" width="100%" height="350">
+            <div class="product-info">
+                <h3>Dark Navy</h3><p>Y2k.</p><div class="price">Rp139.000</div>
+                <button class="story-btn" onclick="showStory('Dark Navy','Warna navy gelap menjadi pilihan untuk kamu yang ingin menggunakan warna selain hitam tetapi tetap terlihat tenang.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju16.jpeg" alt="Boneka Lotso" width="100%" height="350">
+            <div class="product-info">
+                <h3>Boneka lotso</h3><p>Cartoon.</p><div class="price">Rp149.000</div>
+                <button class="story-btn" onclick="showStory('Lotso','Lotso adalah boneka beruang merah muda dari Toy Story 3 yang awalnya terlihat lembut dan penuh kasih. Namun, pengalaman masa lalu membuatnya berubah menjadi sosok yang keras dan sulit mempercayai orang lain.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju17.jpeg" alt="Spiderman" width="100%" height="350">
+            <div class="product-info">
+                <h3>Spiderman</h3><p>Films.</p><div class="price">Rp199.000</div>
+                <button class="story-btn" onclick="showStory('Spider-Man','Peter Parker mendapatkan kekuatan super setelah digigit laba-laba yang telah mengalami perubahan. Dengan kekuatannya, ia belajar bahwa menjadi pahlawan bukan hanya tentang memiliki kemampuan khusus, tetapi juga tentang tanggung jawab.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju18.jpeg" alt="Ip Man" width="100%" height="350">
+            <div class="product-info">
+                <h3>ip man</h3><p>Film.</p><div class="price">Rp145.000</div>
+                <button class="story-btn" onclick="showStory('Ip Man','Ip Man adalah seorang ahli bela diri Wing Chun yang dikenal karena ketenangan dan prinsipnya. Ia menghadapi berbagai tantangan sambil tetap mempertahankan kehormatan, disiplin, dan kecintaannya pada seni bela diri.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju19.jpeg" alt="Minecraft" width="100%" height="350">
+            <div class="product-info">
+                <h3>Minecraft</h3><p>Game.</p><div class="price">Rp125.000</div>
+                <button class="story-btn" onclick="showStory('Minecraft','Minecraft adalah dunia terbuka tempat pemain bebas menjelajah, mengumpulkan sumber daya, membangun berbagai hal, dan bertahan hidup. Dengan kreativitas tanpa batas, setiap pemain dapat menciptakan petualangannya sendiri.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju20.jpeg" alt="500 Days of Summer" width="100%" height="350">
+            <div class="product-info">
+                <h3>500 days of Summer</h3><p>Film.</p><div class="price">Rp289.000</div>
+                <button class="story-btn" onclick="showStory('500 Days of Summer','Kisah Tom yang jatuh cinta pada Summer dan mengira hubungan mereka akan menjadi sesuatu yang lebih. Seiring berjalannya waktu, Tom belajar bahwa cinta tidak selalu berjalan seperti yang diharapkan dan terkadang seseorang harus belajar menerima kenyataan.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju21.jpeg" alt="Death Note" width="100%" height="350">
+            <div class="product-info">
+                <h3>Death note</h3><p>Anime.</p><div class="price">Rp139.000</div>
+                <button class="story-btn" onclick="showStory('Death Note','Light Yagami menemukan sebuah buku misterius yang dapat membunuh seseorang hanya dengan menuliskan namanya. Ia kemudian menggunakan buku tersebut untuk menciptakan dunia sesuai keinginannya, hingga seorang detektif jenius bernama L mulai menyelidiki kasus tersebut.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju22.jpeg" alt="The Warriors" width="100%" height="350">
+            <div class="product-info">
+                <h3>The warriors</h3><p>Game.</p><div class="price">Rp209.000</div>
+                <button class="story-btn" onclick="showStory('The Warriors','The Warriors mengikuti sekelompok anggota geng yang harus melewati perjalanan berbahaya untuk kembali ke wilayah mereka setelah dituduh melakukan sesuatu yang tidak mereka lakukan. Mereka harus bekerja sama dan bertahan dari berbagai kelompok yang mengejar mereka.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju23.jpeg" alt="Mario Bros" width="100%" height="350">
+            <div class="product-info">
+                <h3>Game</h3><p>Mario bros.</p><div class="price">Rp219.000</div>
+                <button class="story-btn" onclick="showStory('Mario Bros','Mario dan Luigi adalah saudara yang berpetualang di dunia penuh tantangan untuk menyelamatkan orang yang mereka sayangi. Dengan keberanian, kerja sama, dan berbagai rintangan, mereka terus maju menghadapi musuh dan menyelesaikan misi.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="baju/baju24.jpeg" alt="Weak Hero Class" width="100%" height="350">
+            <div class="product-info">
+                <h3>Series</h3><p>Weak hero class.</p><div class="price">Rp159.000</div>
+                <button class="story-btn" onclick="showStory('Weak Hero Class','Yeon Si-eun adalah siswa yang terlihat lemah secara fisik, tetapi memiliki kecerdasan dan kemampuan berpikir yang tajam. Ia menghadapi berbagai masalah di sekolah dan menggunakan strategi untuk melindungi dirinya serta orang-orang di sekitarnya.')">Story</button>
+                <a class="buy" href="https://www.instagram.com/luxed_amour15" target="_blank">◎ &nbsp; Buy via Instagram &nbsp; ›</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="owner" id="owner">
+    <div class="title">
+        <h2>ABOUT THE OWNER</h2>
+        <p>Saya mendirikan brand ini karena ingin menciptakan sesuatu yang berbeda dari brand pakaian pada umumnya. Saya menggabungkan fashion dengan berbagai cerita, karakter, film, anime, musik, dan hal-hal yang saya sukai.</p>
+    </div>
+
+    <div class="owner-box">
+        <img class="owner-photo" src="baju/own1.jpeg" alt="Noufal Akbar">
+
+        <div class="owner-info">
+            <h2>Noufal Akbar</h2>
+            <p>
+                Halo, saya Noufal, owner dari Nopal Wear.
+                Nopal Wear dibuat dengan konsep pakaian yang
+                sederhana, nyaman, dan mudah digunakan dalam
+                kehidupan sehari-hari.
+            </p>
+            <br>
+            <p>
+                Saya membangun brand ini sebagai cara untuk
+                menuangkan apa yang saya rasakan dan pengalaman
+                yang saya alami ke dalam desain pakaian. Saya ingin
+                setiap desain memiliki cerita, bukan hanya sekadar
+                gambar atau tulisan.
+            </p>
+            <br>
+            <p>
+                Salah satu hal yang paling saya hargai adalah
+                teman-teman yang selalu ada ketika saya sedang
+                kesulitan dan membantu tanpa banyak meminta balasan.
+                Dari pengalaman tersebut, saya belajar tentang arti
+                pertemanan, kepedulian, dan rasa terima kasih.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="title">
+        <h2>CONTACT</h2>
+        <p>Hubungi kami untuk informasi dan pemesanan</p>
+    </div>
+
+    <div class="contact-box">
+        <p>
+            Instagram:
+            <a href="https://www.instagram.com/nplkbar" target="_blank">@nplkbar</a>
+            <br>
+            <a href="https://www.instagram.com/luxed_amour15" target="_blank">@luxe d'amour</a>
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:noufalakbarsyahputra7@gmail.com">noufalakbarsyahputra7@gmail.com</a>
+        </p>
+
+        <p>
+            WhatsApp:
+            <a href="https://wa.me/6289637761693" target="_blank">Chat WhatsApp</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    © 2026 NOPAL WEAR — Simple. Clean. Timeless.
+</footer>
+
+<div class="modal" id="storyModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeStory()">&times;</span>
+        <h2 id="storyTitle"></h2>
+        <p id="storyText"></p>
+    </div>
+</div>
+
+<script>
+    function showStory(title, text) {
+        document.getElementById("storyTitle").innerText = title;
+        document.getElementById("storyText").innerText = text;
+        document.getElementById("storyModal").style.display = "block";
+    }
+
+    function closeStory() {
+        document.getElementById("storyModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById("storyModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
